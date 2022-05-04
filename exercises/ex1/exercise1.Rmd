@@ -1,0 +1,25 @@
+---
+title: "Exercise 1"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+#setwd("~/dev/teaching/2022-ona/2022-ona-assignments/")
+```
+
+## 2. Loading data
+
+```{r}
+connections <- read_csv("Connections.csv")
+```
+
+## 3. Get count of contacts by employer
+I'm using `dplyr` functions ("verbs") to do the counts. Also note the pipe operator `%>%` that passes the data from one step to the next.
+
+```{r}
+connections %>% 
+  count(Company) %>% 
+  arrange(-n)
+```
