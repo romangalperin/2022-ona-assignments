@@ -21,5 +21,25 @@ I'm using `dplyr` functions ("verbs") to do the counts. Also note the pipe opera
 ```{r}
 connections %>% 
   count(Company) %>% 
+  filter(!is.na(Company)) %>% 
   arrange(-n)
 ```
+
+## 4. Create nodes and edges to use with igraph/tidygraph
+
+```{r}
+node_list <- connections %>% 
+  transmute(
+    name = paste0(`First Name`, " ", `Last Name`),
+    company = Company
+    ) %>% 
+  filter(!is.na(company))
+
+company_list <- node_list %>% 
+  rename(alter = name)
+
+aff_connections <- node_list %>% 
+  full_join(company_list) %>% 
+  filter(name != alter) # remove connections to self
+```
+
