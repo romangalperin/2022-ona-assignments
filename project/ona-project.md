@@ -1,4 +1,4 @@
-2022 Organizational Network Analysis project description
+2022 Organizational network analysis group project
 ================
 
 ## Project overview
@@ -38,17 +38,26 @@ affects the examination time—the time from the date the application is
 filed until a definitive decision is made. Understanding the causes and
 the variation in the examination time can help reduce the backlog.
 
+### Advice networks
+
+In the process of examining applications, examiners sometimes consult
+with each other, and some of those consultations are recorded as part of
+the patent application file. These advice networks may expose the
+structure of knowledge exchange and learning at the USPTO. It is
+possible that certain (e.g., more or less central) positions in this
+advice networks correlate with and predict work processes and outcomes.
+
 ### Inequities among examiners
 
-The agency suspects—and has some indirect evidence—that examiners’ work,
-mobility across units, promotion across pay grades and attrition differ
-systematically by demographic characteristics. Of special concern are
-patterns related to examiner’s gender and race/ethnicity, not only
-because such differences may pose obvious ethical challenges, but also
-because they increase the risk of legal liability for the agency. The
-USPTO would like to understand what, if any, patterns in examiners’
-work, mobility, promotion and attrition vary systematically by race
-and/or gender.
+The agency suspects—and has some indirect evidence—that examiners’ work
+and attrition differ systematically by demographic characteristics. Of
+special concern are patterns related to examiner’s gender and
+race/ethnicity, not only because such differences may pose obvious
+ethical challenges, but also because they increase the risk of legal
+liability for the agency. The USPTO would like to understand what, if
+any, patterns in examiners’ work, *including differences in network
+position and differences in application processing time* vary
+systematically by race and/or gender.
 
 ## Team project
 
@@ -119,3 +128,41 @@ app_data_sample %>%
     ## [10] "patent_number"        "patent_issue_date"    "abandon_date"        
     ## [13] "disposal_type"        "appl_status_code"     "appl_status_date"    
     ## [16] "tc"
+
+### Advice networks
+
+The data on advice instances come from my own research project and are
+based on public records. The table contains directed edge list with the
+application for which the consultation was requested, the date of the
+advice request, and the ids of the examiner seeking advice and the one
+procviding it, respectively.
+
+``` r
+# edges
+edges %>% tbl_vars()
+```
+
+    ## <dplyr:::vars>
+    ## [1] "application_number" "advice_date"        "ego_examiner_id"   
+    ## [4] "alter_examiner_id"
+
+## Deliverables
+
+Each team only submits one report. As usual, post the .md file for your
+report on GitHub and post a link in the discussion area on myCourses
+(don’t forget to upload all the images, so that the report renders
+correctly). In addition, submit the PDF version of the report in the
+assignment section of myCourses.
+
+Your report should include:
+
+-   A clear introduction of the context and your research question(s)
+-   A clear description of your methodology that includes justification
+    for choices of variables and models
+-   A clear demonstration of the analysis and results
+-   A discussion of results and conclusions drawn from your analysis
+
+You should fit all of the content in the space of 10 pages or less,
+including all the figures and references.
+
+For deadlines, please consult myCourses website.
