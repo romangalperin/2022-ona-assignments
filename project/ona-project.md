@@ -134,8 +134,9 @@ app_data_sample %>%
 The data on advice instances come from my own research project and are
 based on public records. The table contains directed edge list with the
 application for which the consultation was requested, the date of the
-advice request, and the ids of the examiner seeking advice and the one
-procviding it, respectively.
+advice request, and the ids of the examiner seeking advice
+(`ego_examiner_id`) and the one providing it (`alter_examiner_id`),
+respectively.
 
 ``` r
 # edges
